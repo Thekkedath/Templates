@@ -19,10 +19,17 @@
             "ttl": 3600
         },
         {
-            "groupId": "a2",
+            "groupId": "a1",
             "type": "REDIR301",
             "target": "%target%",
             "host": "@"
+        },
+        {
+            "groupId": "a2",
+            "type": "CNAME",
+            "host": "%webSiteHost%",
+            "pointsTo": "target.clickfunnels.com",
+            "ttl": 3600
         }
     ]
 }
