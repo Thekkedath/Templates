@@ -1,0 +1,57 @@
+{
+    "providerId": "goentri.com",
+    "providerName": "Entri",
+    "serviceId": "third-party-service",
+    "serviceName": "ThirdPartyService",
+    "version": 1,
+    "logoUrl": "https://cdn.goentri.com/logo.svg",
+    "description": "Allows user to easily set up dkim record using Entri",
+    "syncPubKeyDomain": "goentri.com",
+    "syncRedirectDomain": "api.goentri.com, goentri.com, entri.com, app.entri.com,app.goentri.com",
+    "variableDescription": "ip is the ip to point the domain, customDomain is the subdomain to point Sprwt servers websitePointsTo. hostValue and customValue is the dynamic host value assigned to the domain,txt is the text domain verification",
+    "sharedProviderName": true,
+    "records": [
+        {
+            "groupId": "a1",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "75.2.60.5",
+            "ttl": 300
+        },
+        {
+            "groupId": "a1",
+            "type": "CNAME",
+            "host": "www",
+            "pointsTo": "@",
+            "ttl": 300
+        },
+        {
+            "groupId": "a2",
+            "type": "A",
+            "host": "@",
+            "pointsTo": "%ip%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "a2",
+            "type": "CNAME",
+            "host": "%customDomain%",
+            "pointsTo": "%websitePointsTo%",
+            "ttl": 3600
+        },
+        {
+            "groupId": "a2",
+            "type": "TXT",
+            "host": "@",
+            "data": "v=spf1 include:amazonses.com include:_spf.google.com ~all",
+            "ttl": 3600
+        },
+        {
+            "groupId": "a3",
+            "type": "TXT",
+            "host": "@",
+            "data": "%txt%",
+            "ttl": 3600
+        }
+    ]
+}
